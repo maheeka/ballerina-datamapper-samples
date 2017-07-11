@@ -3,6 +3,7 @@ package org.samples.transformstmt;
 import org.samples.structdefs;
 import org.samples.structdefsmore;
 import ballerina.lang.strings;
+import ballerina.lang.system;
 
 struct EmployeeThis {
     string name;
@@ -26,14 +27,14 @@ struct AddressThis {
 function main (string[] args) {
     // from a different package
     structdefs:Person pImport = {first_name: "John",last_name: "Doe",age: 30,city: "London"};
-    structdefs:Employee eImport = {};
+    structdefs:Employee eImport = {address:{}};
     
     // from this bal
-    PersonThis pThis = {first_name: "John",last_name: "Doe",age: 30,city: "London"};
-    EmployeeThis eThis = {};
+    PersonThis pThis = {first_name: "John",last_name: "Doe",age: 30, address:{number:"123", street:"York Street",city: "London"}};
+    EmployeeThis eThis = {address:{}};
     
     //from a different bal in same package
-    Person pPkg = {first_name: "John",last_name: "Doe",age: 30,city: "London"};
+    Person pPkg = {first_name: "John",last_name: "Doe",age: 30};
     Employee ePkg = {};
 
     transform {
@@ -46,6 +47,8 @@ function main (string[] args) {
         eImport.address.citycomplex = strings:toLowerCase(pImport.city);
         ePkg.name = strings:toUpperCase(pThis.last_name);
     }
+    
+    system:println(eImport.address.citycomplex + " " + ePkg.age + " " + eThis.address.street);
 
     }
 

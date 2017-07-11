@@ -9,30 +9,21 @@ struct Person {
 struct User {
     string username;
     string location;
-    string ageCode;
+    int ageCode;
     string category;
 }
 
 function main (string[] args) {
     Person p = {first_name: "John",last_name: "Doe",age: 30,city: "London"};
     User u = {};
-    int y;
 
     transform {
-        u.username= p.first_name;
-        u.category,u.ageCode= getCategory(p.age);
-        }
-}
-
-function getCategory (int age, int y) (string x, int y) {
-    if (age> 50) {
-        return "senior_citizen",1;
-    } else {
-        return "other",0;
+        u.username = p.first_name;
+        u.ageCode,u.location = getCategory();
     }
 }
 
-function testcat (int age, int x) (string y) {
+function getCategory (int age) (string x, int y) {
     if (age> 50) {
         return "senior_citizen",1;
     } else {
