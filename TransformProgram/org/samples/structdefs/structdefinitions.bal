@@ -6,7 +6,7 @@ import org.samples.structdefsmore;
 struct Employee {
     string name;
     int age;
-    structdefsmore:Address address;
+    structdefsmore:Address addressComplex;
 }
 
 struct Person {
