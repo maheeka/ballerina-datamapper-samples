@@ -20,3 +20,9 @@ function testTransform (json<Person> p, json<Employee> e) {
         e.address = p.city;
     }
 }
+
+function main(string[] args) {
+    json<Person> p = {};
+    json<Employee> e = {};
+    testTransform(p, e);
+}
