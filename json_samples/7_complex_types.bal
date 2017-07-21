@@ -1,4 +1,3 @@
-import ballerina.lang.strings;
 import ballerina.lang.jsons;
 
 struct Person {
