@@ -3,7 +3,7 @@ import ballerina.lang.messages;
 import ballerina.lang.errors;
 import ballerina.lang.system;
 
-@http:config {
+@http:configuration {
     basePath: "/test"
 }
 service<http> Service1 {
@@ -16,7 +16,7 @@ service<http> Service1 {
         json j = messages:getJsonPayload(m);
         Person p;
         errors:TypeConversionError err;
-        p,err = <Person> j;
+        p, err = <Person> j;
         if (err != null) {
             system:println(err);
         }

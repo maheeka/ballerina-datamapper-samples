@@ -14,7 +14,7 @@ struct Person {
 }
 
 function main (string[] args) {
-    Person p = {first_name: "John",last_name: "Doe",age: 30,city: "London"};
+    Person p = {first_name: "John", last_name: "Doe", age: 30, city: "London"};
     Employee e = {};
 
     transform {

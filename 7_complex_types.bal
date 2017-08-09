@@ -35,5 +35,6 @@ function main (string[] args) {
         e.address.number = p.address.number;
         e.address.street = strings:toUpperCase(p.address.street);
         e.address.phoneNumber.areaCode = p.address.city;
+        e.address.phoneNumber.phoneNumber = p.address.phoneNumber.phoneNumber;
     }
 }

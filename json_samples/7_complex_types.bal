@@ -26,7 +26,7 @@ struct Employee {
 }
 
 function main (string[] args) {
-    json<Person> p = {first_name: "John",last_name: "Doe",age: 30,address: {phoneNumber: {}}};
+    json<Person> p = {first_name: "John",last_name: "Doe",age: 30,address: {phoneNumber: {}, street:"York St"}};
     json<Employee> e = {address: {phoneNumber: {}}};
     string basePath = "$";
 
