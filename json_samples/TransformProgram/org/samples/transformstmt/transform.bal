@@ -3,7 +3,7 @@ package org.samples.transformstmt;
 import org.samples.structdefs;
 import org.samples.structdefsmore;
 import ballerina.lang.system;
-import ballerina.lang.jsons;
+
 
 struct EmployeeThis {
     string name;
@@ -62,7 +62,7 @@ function testTransform (json<structdefs:Person> pImport, json<structdefs:Employe
         eThis.age = pPkg.age;
         eImport.addressComplex.citycomplex = pImport.city;
         //ePkg.name = strings:toUpperCase(pThis.last_name);
-        eThis.address.citycomplex = jsons:getJson(pThis.address.city,basePath);
+        eThis.address.citycomplex = pThis.address.city;
     }
     system:println(eImport.addressComplex.citycomplex);
     system:println(ePkg.age);

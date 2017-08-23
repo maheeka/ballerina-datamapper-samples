@@ -1,4 +1,6 @@
 
+import ballerina.lang.strings;
+
 struct Employee {
     string name;
     int age;
@@ -6,19 +8,19 @@ struct Employee {
 }
 
 struct Person {
-    string first_name;
-    string last_name;
+    string firstName;
+    string lastName;
     int age;
     string city;
 }
 
 function main (string[] args) {
-    Person p = {first_name: "John",last_name: "Doe",age: 30,city: "London"};
+    Person p = {firstName: "John",lastName: "Doe",age: 30,city: "London"};
     Employee e = {};
 
+
     transform {
-        e.address = p.city;
-        e.name = p.first_name;
-        e.age = p.age;
+        e.name = p.firstName;
+        e.age, _ = <int> p.city;
+        }
     }
-}

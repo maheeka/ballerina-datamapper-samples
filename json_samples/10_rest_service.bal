@@ -8,10 +8,10 @@ import ballerina.lang.system;
 }
 service<http> Service1 {
 
-    @http:POST {}
-    @http:Path {
-        value: "/"    
-}
+    @http:resourceConfig {
+        methods:["POST"],
+        path:"/"
+    }
     resource Resource1 (message m) {
         json j = messages:getJsonPayload(m);
         Person p;
@@ -21,7 +21,7 @@ service<http> Service1 {
             system:println(err);
         }
         string city = "London";
-        json<Person> response = {};
+        json     <Person> response = {};
 
         transform {
             response.name = p.name;
